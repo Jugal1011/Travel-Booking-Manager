@@ -1,0 +1,17 @@
+[ {
+  "ticket_id" : "1001",
+  "user_id" : "1d4b89c2-a456-4b0c-8f8b-123456789abc",
+  "train_id" : "raj01",
+  "source" : "delhi",
+  "destination" : "mumbai",
+  "date_of_travel" : "2024-01-15",
+  "ticket_info" : "Ticket ID: 1001 | User: 1d4b89c2-a456-4b0c-8f8b-123456789abc | Route: delhi to mumbai | Date: 2024-01-15"
+}, {
+  "ticket_id" : "d953bcea-c636-4f42-a86c-2c99b5c7c475",
+  "user_id" : "b10b08e2-8a15-4fe0-b064-0ed7ba647e8e",
+  "train_id" : "raj01",
+  "source" : "delhi",
+  "destination" : "kota",
+  "date_of_travel" : "2026-07-12",
+  "ticket_info" : "Ticket ID: d953bcea-c636-4f42-a86c-2c99b5c7c475 | User: b10b08e2-8a15-4fe0-b064-0ed7ba647e8e | Route: delhi to kota | Date: 2026-07-12"
+} ]

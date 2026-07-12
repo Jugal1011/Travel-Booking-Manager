@@ -1,0 +1,16 @@
+[ {
+  "user_id" : "1d4b89c2-a456-4b0c-8f8b-123456789abc",
+  "name" : "Aman Sharma",
+  "password" : "Aman@123",
+  "hashed_password" : "$2a$10$eN8iP7qjD4Yx8JQvXJ0MkeN9mD5sQ0nQ5vYtQjF2nP1jG9xK8yL1W"
+}, {
+  "user_id" : "72ab4f5d-8d14-4e39-8b0d-7d8c89af4561",
+  "name" : "Priya Verma",
+  "password" : "Priya@456",
+  "hashed_password" : "$2a$10$ZkYQ3X8KqM2Qd3hVJ1mNQeA8mV9L0P7wG1cL2sH4nQ8xY9aB2dC3e"
+}, {
+  "user_id" : "b10b08e2-8a15-4fe0-b064-0ed7ba647e8e",
+  "name" : "jugal",
+  "password" : "Jugal@123",
+  "hashed_password" : "$2a$10$lEa1pSmFeuaAMfxYLvkHs.d43V5jVnGG4x9Q2UqWUFtjDIJkiBBwm"
+} ]

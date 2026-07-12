@@ -1,0 +1,23 @@
+[ {
+  "train_id" : "raj01",
+  "train_no" : "12952",
+  "seats" : [ [ 1, 1, 0, 0, 0, 1 ], [ 0, 0, 0, 1, 0, 0 ], [ 0, 0, 1, 0, 0, 0 ], [ 1, 0, 0, 0, 0, 0 ] ],
+  "station_times" : {
+    "delhi" : "08:30:00",
+    "kota" : "14:15:00",
+    "mumbai" : "22:00:00"
+  },
+  "stations" : [ "delhi", "kota", "mumbai" ],
+  "train_info" : "Train ID: raj01 | Train No: 12952"
+}, {
+  "train_id" : "chn02",
+  "train_no" : "12604",
+  "seats" : [ [ 0, 0, 0, 1, 0, 0 ], [ 0, 1, 0, 0, 0, 0 ], [ 0, 0, 0, 0, 1, 0 ], [ 0, 0, 1, 0, 0, 0 ] ],
+  "station_times" : {
+    "hyderabad" : "06:30:00",
+    "nellore" : "12:00:00",
+    "chennai" : "15:30:00"
+  },
+  "stations" : [ "hyderabad", "nellore", "chennai" ],
+  "train_info" : "Train ID: chn02 | Train No: 12604"
+} ]
