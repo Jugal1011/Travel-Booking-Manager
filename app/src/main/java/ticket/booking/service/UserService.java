@@ -22,15 +22,21 @@ public class UserService {
 
     private static final String USER_FILE_PATH = "app/src/main/java/ticket/booking/localDb/users.json";
 
+    private void loadUserListFromFile() throws IOException {
+        File file = new File(USER_FILE_PATH);
+        this.userList = file.exists() ? objectMapper.readValue(file, new TypeReference<List<User>>() {}) : new ArrayList<>();
+    }
+
+    private void saveUserListToFile() throws IOException {
+        File file = new File(USER_FILE_PATH);
+        // writerWithDefaultPrettyPrinter() ensures the JSON is nicely indented.
+        objectMapper.writerWithDefaultPrettyPrinter().writeValue(file, userList);
+    }
+
     public UserService(TrainService trainService, TicketService ticketService) throws IOException {
         this.trainService = trainService;
         this.ticketService = ticketService;
         loadUserListFromFile();
-    }
-
-    private void loadUserListFromFile() throws IOException {
-        File file = new File(USER_FILE_PATH);
-        this.userList = file.exists() ? objectMapper.readValue(file, new TypeReference<List<User>>() {}) : new ArrayList<>();
     }
 
     public boolean loginUser(String name, String rawPassword) {
@@ -92,24 +98,23 @@ public class UserService {
     public boolean bookTrainSeat(Train train, int row, int seat, String source, String dest, String date) {
         if (currentUser == null) return false;
 
-        List<List<Integer>> seats = train.getSeats();
-        if (row >= 0 && row < seats.size() && seat >= 0 && seat < seats.get(row).size()) {
-            if (seats.get(row).get(seat) == 0) {
-                // 1. Reserve Seat
-                seats.get(row).set(seat, 1);
-                trainService.updateTrain(train);
-
-                // 2. Generate Ticket Record
-                ticketService.createTicket(currentUser, train, source, dest, date);
-                return true;
-            }
+        // 1. Validate physical boundaries
+        if (row < 0 || row >= train.getTotalRows() || seat < 0 || seat >= train.getSeatsPerRow()) {
+            System.out.println("Invalid seat selection.");
+            return false;
         }
-        return false;
-    }
 
-    private void saveUserListToFile() throws IOException {
-        File file = new File(USER_FILE_PATH);
-        // writerWithDefaultPrettyPrinter() ensures the JSON is nicely indented.
-        objectMapper.writerWithDefaultPrettyPrinter().writeValue(file, userList);
+        // 2. Fetch existing bookings for this train & date
+        List<Ticket> bookedTickets = ticketService.getTicketsForTrainAndDate(train.getTrainId(), date);
+
+        // 3. Check availability mathematically
+        if (trainService.isSeatAvailable(train, row, seat, source, dest, bookedTickets)) {
+            // 4. Create ticket (This inherently "reserves" the seat!)
+            ticketService.createTicket(currentUser, train, source, dest, date, row, seat);
+            return true;
+        } else {
+            System.out.println("Seat occupied for a portion of your journey.");
+            return false;
+        }
     }
 }

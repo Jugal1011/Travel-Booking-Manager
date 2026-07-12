@@ -18,6 +18,14 @@ public class TicketService {
     private final ObjectMapper objectMapper = new ObjectMapper();
     private static final String TICKET_DB_PATH = "app/src/main/java/ticket/booking/localDb/tickets.json";
 
+    private void saveTicketsToFile() {
+        try {
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(TICKET_DB_PATH), ticketList);
+        } catch (IOException e) {
+            System.err.println("Failed to save ticket data.");
+        }
+    }
+
     public TicketService() throws IOException {
         File file = new File(TICKET_DB_PATH);
         this.ticketList = file.exists() ? objectMapper.readValue(file, new TypeReference<List<Ticket>>() {}) : new ArrayList<>();
@@ -29,7 +37,7 @@ public class TicketService {
                 .collect(Collectors.toList());
     }
 
-    public Ticket createTicket(User user, Train train, String source, String destination, String date) {
+    public Ticket createTicket(User user, Train train, String source, String destination, String date, int row, int col) {
         // Using standard constructor instead of builder
         Ticket newTicket = new Ticket(
                 UUID.randomUUID().toString(),
@@ -37,7 +45,9 @@ public class TicketService {
                 train.getTrainId(),
                 source,
                 destination,
-                date
+                date,
+                row,
+                col
         );
 
         ticketList.add(newTicket);
@@ -53,11 +63,10 @@ public class TicketService {
         return removed;
     }
 
-    private void saveTicketsToFile() {
-        try {
-            objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(TICKET_DB_PATH), ticketList);
-        } catch (IOException e) {
-            System.err.println("Failed to save ticket data.");
-        }
+    public List<Ticket> getTicketsForTrainAndDate(String trainId, String date) {
+        return ticketList.stream()
+                .filter(ticket -> ticket.getTrainId().equalsIgnoreCase(trainId) && 
+                                  ticket.getDateOfTravel().equals(date))
+                .collect(Collectors.toList());
     }
 }

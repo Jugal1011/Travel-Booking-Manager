@@ -5,7 +5,9 @@
   "source" : "delhi",
   "destination" : "mumbai",
   "date_of_travel" : "2024-01-15",
-  "ticket_info" : "Ticket ID: 1001 | User: 1d4b89c2-a456-4b0c-8f8b-123456789abc | Route: delhi to mumbai | Date: 2024-01-15"
+  "row" : 1,
+  "col" : 1,
+  "ticket_info" : "Ticket ID: 1001 | User: 1d4b89c2-a456-4b0c-8f8b-123456789abc | Route: delhi to mumbai | Date: 2024-01-15 | Seat: Row 1, Col 1"
 }, {
   "ticket_id" : "d953bcea-c636-4f42-a86c-2c99b5c7c475",
   "user_id" : "b10b08e2-8a15-4fe0-b064-0ed7ba647e8e",
@@ -13,5 +15,17 @@
   "source" : "delhi",
   "destination" : "kota",
   "date_of_travel" : "2026-07-12",
-  "ticket_info" : "Ticket ID: d953bcea-c636-4f42-a86c-2c99b5c7c475 | User: b10b08e2-8a15-4fe0-b064-0ed7ba647e8e | Route: delhi to kota | Date: 2026-07-12"
+  "row" : 1,
+  "col" : 1,
+  "ticket_info" : "Ticket ID: d953bcea-c636-4f42-a86c-2c99b5c7c475 | User: b10b08e2-8a15-4fe0-b064-0ed7ba647e8e | Route: delhi to kota | Date: 2026-07-12 | Seat: Row 1, Col 1"
+}, {
+  "ticket_id" : "598b3f41-2294-4f27-ab51-4897fa37c875",
+  "user_id" : "b10b08e2-8a15-4fe0-b064-0ed7ba647e8e",
+  "train_id" : "raj01",
+  "source" : "delhi",
+  "destination" : "mumbai",
+  "date_of_travel" : "2026-07-12",
+  "row" : 0,
+  "col" : 0,
+  "ticket_info" : "Ticket ID: 598b3f41-2294-4f27-ab51-4897fa37c875 | User: b10b08e2-8a15-4fe0-b064-0ed7ba647e8e | Route: delhi to mumbai | Date: 2026-07-12 | Seat: Row 0, Col 0"
 } ]
