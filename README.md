@@ -8,7 +8,7 @@ A command-line Java application for searching, booking, and managing travel tick
 
 ## 📖 Overview
 
-Travel Booking Manager is a console-based application that lets users sign up, log in, search for available trips, book tickets, and manage their bookings through a simple text menu. [Add one or two sentences about why you built it, e.g. a learning project for OOP, file handling, or JSON storage.]
+Travel Booking Manager is a console-based application that lets users sign up, log in, search for available trips, book tickets, and manage their bookings through a simple text menu.
 
 ## ✨ Features
 
